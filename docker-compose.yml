@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  postgres:
+    container_name: teste_postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5498:5432
+    expose:
+      - 5498
+    volumes:
+      - ./data/Bootstrap/:/docker-entrypoint-initdb.d/
