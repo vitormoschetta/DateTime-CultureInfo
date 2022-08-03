@@ -41,7 +41,7 @@ public class Order
         get
         {
             // Essa conversão ocorre com sucesso, e também grava corretamente no banco de dados.
-            // InvariantCulture informa que não queremos depender do idioma do sistema operacional.
+            // DateTimeStyles.AdjustToUniversal informa que queremos que o DateTime seja convertido para UniversalTime.
             DateTime.TryParseExact(Date, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.AdjustToUniversal, out DateTime date);
             return date;
         }
@@ -53,7 +53,6 @@ public class Order
         {
             // Essa conversão ocorre com sucesso, e também grava corretamente no banco de dados.
             // CultureInfo.InvariantCulture informa que não queremos depender do idioma do sistema operacional.
-            // DateTimeStyles.AdjustToUniversal informa que queremos que o DateTime seja convertido para UniversalTime.
             DateTime.TryParseExact(Date, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out DateTime date);
             return date;
         }
